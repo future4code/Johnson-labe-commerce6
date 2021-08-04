@@ -7,6 +7,7 @@ function App() {
     <div>
     <ComponenteCarrinhos/>
     </div>
+    
   );
 }
 
