@@ -15,7 +15,7 @@ input {
 }
 `;
 
-export default class Filtros extends Component {
+export default class Filtros extends React.Component {
   render() {
     return (
       <ComponenteFiltros>
