@@ -9,6 +9,7 @@ input {
   border-radius: 15px;
   border: 1px solid transparent;
   height: 30px;
+  background-color: grey;
   &:focus {
     outline: 0;
   }
@@ -24,17 +25,30 @@ export default class Filtros extends React.Component {
         <form action="">
           <div>
             <label>Valor Mínimo</label>
-            <input/>
+            <input
+            type="number"
+            placeholder="Digite o minimo"
+            
+            />
           </div>
 
           <div>
             <label>Valor Máximo</label>
-            <input/>
+            <input
+            
+            type="number"
+              placeholder="Digite o maximo"
+            
+            />
           </div>
 
           <div>
             <label>Busca</label>
-            <input/>
+            <input
+            type="text"
+            placeholder="Nome do produto"
+            
+            />
           </div>
         </form>
       </ComponenteFiltros>
