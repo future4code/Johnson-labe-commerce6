@@ -28,17 +28,19 @@ export default class Filtros extends React.Component {
             <input
             type="number"
             placeholder="Digite o minimo"
-            
+            value={this.props.valueValorMinimo}
+            onChange={this.props.onChangeValorMinimo}
             />
           </div>
 
           <div>
             <label>Valor Máximo</label>
             <input
-            
             type="number"
-              placeholder="Digite o maximo"
-            
+            placeholder="Digite o maximo"
+            value={this.props.valueValorMinimo}
+            onChange={this.props.onChangeValorMaximo}
+
             />
           </div>
 
@@ -47,6 +49,8 @@ export default class Filtros extends React.Component {
             <input
             type="text"
             placeholder="Nome do produto"
+            value={this.props.valueBuscaPorNome}
+              onChange={this.props.onChangeBuscaPorNome}
             
             />
           </div>
