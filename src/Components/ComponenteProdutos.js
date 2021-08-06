@@ -3,6 +3,8 @@ import React from 'react';
 import styled from 'styled-components'
 import App from '../App'
 
+import Filtros from './ComponenteFiltros';
+
 const Header = styled.header`
 display: flex;
 padding-top: 20px;
