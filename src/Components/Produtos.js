@@ -1,5 +1,12 @@
+
 import React from "react";
 import styled from "styled-components";
+// import ovni from '../image/contato-ovni.jpg'
+// import foguete from '../image/foguete.jpg'
+// import meteorito from '../image/meteorito.jpg'
+// import roupa from '../image/roupa-espacial.jpg'
+// import buraco from '../image/ver-buraco-negro.jpg'
+// import viagem from '../image/viagem-espacial-lua.jpg'
 
 const ProdutosContainer = styled.div`
   border: 1px solid black;
@@ -24,11 +31,13 @@ const ProdutosGrid = styled.div`
 const CardProduto = styled.div`
   border: 1px solid black;
   border-radius:4px;
+  
 `;
 
 const ImagemProduto = styled.img`
   width: 100%;
- 
+
+
 `;
 
 const InfosProduto = styled.div`
@@ -69,16 +78,34 @@ export class Produtos extends React.Component {
         imageUrl: "https://picsum.photos/200/200?a=4",
       },
     ],
+
+   
   };
+  
 
   
 
   render() {
 
+
+    const listaProdutos = this.state.produtos.map((Produto) => {
+      return  (
+      <CardProduto>
+      <ImagemProduto src={Produto.imageUrl} alt = {Produto.name}/>
+      <InfosProduto>
+        <p>{Produto.name}</p>
+        <p>R${Produto.value}</p>
+        <button onClick={() => this.props.onClickAdicionarAoCarrinho(Produto)}>Adicionar ao carrinho</button>
+      </InfosProduto>
+    </CardProduto>
+      )
+     
+    })
+
     return (
       <ProdutosContainer>
         <ProdutosHeader>
-          <p>Quantidade de produtos: 3</p>
+          <p>Quantidade de produtos: {this.state.produtos.length}</p>
           <div>
             <label>
               Ordenação:
@@ -90,52 +117,7 @@ export class Produtos extends React.Component {
           </div>
         </ProdutosHeader>
         <ProdutosGrid>
-
-        <CardProduto>
-          <ImagemProduto src="https://picsum.photos/200/200"/>
-          <InfosProduto>
-            <p>xxxxxx</p>
-            <p>R$1000,00</p>
-            <button>Adicionar ao carrinho</button>
-          </InfosProduto>
-        </CardProduto>
-
-        <CardProduto>
-          <ImagemProduto src="https://picsum.photos/200/200"/>
-          <InfosProduto>
-            <p>xxxxxx</p>
-            <p>R$1000,00</p>
-            <button>Adicionar ao carrinho</button>
-          </InfosProduto>
-        </CardProduto>
-
-        <CardProduto>
-          <ImagemProduto src="https://picsum.photos/200/200"/>
-          <InfosProduto>
-            <p>xxxxxx</p>
-            <p>R$1000,00</p>
-            <button>Adicionar ao carrinho</button>
-          </InfosProduto>
-        </CardProduto>
-
-        <CardProduto>
-          <ImagemProduto src="https://picsum.photos/200/200"/>
-          <InfosProduto>
-            <p>xxxxxx</p>
-            <p>R$1000,00</p>
-            <button>Adicionar ao carrinho</button>
-          </InfosProduto>
-        </CardProduto>
-
-        <CardProduto>
-          <ImagemProduto src="https://picsum.photos/200/200"/>
-          <InfosProduto>
-            <p>xxxxxx</p>
-            <p>R$1000,00</p>
-            <button>Adicionar ao carrinho</button>
-          </InfosProduto>
-        </CardProduto>
-       
+          {listaProdutos}
         </ProdutosGrid>
       </ProdutosContainer>
     );

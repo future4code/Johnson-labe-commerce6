@@ -13,18 +13,37 @@ const AppContainer = styled.div`
 `;
 
 
+
+
 class App extends React.Component {  
+
+   state = {
+    carrinho : []
+   }
+ 
+   adicionarAoCarrinho = (cadaProduto) => {
+    const novoCarrinho = [...this.state.carrinho]
+    novoCarrinho.push(cadaProduto);
+
+    this.setState({carrinho: novoCarrinho})
+    console.log(novoCarrinho)
+
+  }
   
- 
- 
+  apagarProduto = () => {
+    console.log("OK")
+  }
+
   render(){
 
     return (
       <>
       <AppContainer>
         <Filtros/>
-        <Produtos/>
-        <Carrinho/>
+        <Produtos onClickAdicionarAoCarrinho = {this.adicionarAoCarrinho}/>
+        <Carrinho produtosDoCarrinho = {this.state.carrinho}
+        deletar = {this.apagarProduto}
+        />
        </AppContainer>
       </>
       
