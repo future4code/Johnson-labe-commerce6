@@ -32,14 +32,46 @@ class App extends React.Component {
   
   apagarProduto = () => {
     console.log("OK")
+  };
+
+  onChangeMinimo = (event) => {
+    this.setState({
+      valorInputMinimo: event.target.value.toLowerCase()
+    })
   }
+  
+  onChangeMaximo = (event) => {
+    this.setState({
+      valorInputMaximo: event.target.value.toLowerCase()
+    })
+  };
+  
+  onChangeBuscar = (event) => {
+    this.setState({
+      valorInputBuscar: event.target.value.toLowerCase()
+    })
+  };
+
+  
 
   render(){
 
     return (
       <>
       <AppContainer>
-        <Filtros/>
+        <Filtros
+       listaProdutos={this.state.trip}
+       valorMinimo = {this.state.valorInputMinimo}
+       Minimo={this.onChangeMinimo}
+
+       valorMaximo = {this.state.valorInputMaximo}
+       Maximo={this.onChangeMaximo}
+       
+       valorBusca = {this.state.valorInputBuscar}
+       Busca={this.onChangeBuscar}
+        
+        />
+
         <Produtos onClickAdicionarAoCarrinho = {this.adicionarAoCarrinho}/>
         <Carrinho produtosDoCarrinho = {this.state.carrinho}
         deletar = {this.apagarProduto}
