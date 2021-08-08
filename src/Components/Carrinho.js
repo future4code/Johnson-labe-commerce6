@@ -18,6 +18,11 @@ const ItemCarrinho = styled.div`
 `;
 
 export class Carrinho extends React.Component {
+  
+  apagarProduto = () => {
+    console.log("OK")
+  }
+
   render() {
     
     return (
@@ -28,14 +33,14 @@ export class Carrinho extends React.Component {
           {this.props.produtosDoCarrinho.map((cadaProduto) =>{
             return (
             <ItemCarrinho>
-            <p>1x - {cadaProduto.name}</p>
-            {/* <button>{this.props.deletarProduto} Deletar</button> */}
+            <p> 1x - {cadaProduto.name}</p>
+             <button onClick = {() => this.props.deletar(cadaProduto)}> Deletar</button>
              </ItemCarrinho> 
             )
           })}
 
           <p>Valor total: R$1000,00</p>
-          <button>{this.props.deletar} Deletar</button>
+         
            
         </ListaCarrinho>
       </CarrinhoContainer>
