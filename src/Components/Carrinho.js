@@ -14,6 +14,7 @@ const ListaCarrinho = styled.div`
 const ItemCarrinho = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export class Carrinho extends React.Component {
@@ -23,14 +24,10 @@ export class Carrinho extends React.Component {
       <CarrinhoContainer>
         <h3>Carrinho</h3>
         <ListaCarrinho>
-          
-            return (
               <ItemCarrinho>
-                <p>1x - {cadaProdutoCarrinho.name}</p>
+                <p>1x - Produto 1</p>
                 <button>Remover</button>
               </ItemCarrinho>
-            );
-          
           <p>Valor total: R$1000,00</p>
         </ListaCarrinho>
       </CarrinhoContainer>

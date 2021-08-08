@@ -4,6 +4,7 @@ import styled from "styled-components";
 const FiltrosContainer = styled.div`
   border: 1px solid black;
   padding: 8px;
+  
 `
 
 const InputsContainer = styled.div`

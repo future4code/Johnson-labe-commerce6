@@ -1,104 +1,143 @@
+import React from "react";
+import styled from "styled-components";
 
-import React from 'react';
-import styled from 'styled-components'
-import App from '../App'
+const ProdutosContainer = styled.div`
+  border: 1px solid black;
+  padding: 0 8px;
+  /* background-color: #181a1b; */
+ 
+`;
 
-import Filtros from './ComponenteFiltros';
+const ProdutosHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+`;
 
-const Header = styled.header`
-display: flex;
-padding-top: 20px;
-justify-content: space-between;
-margin: 0 20px;
-`
+const ProdutosGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+`;
 
-const ContainerCard = styled.div`
-display: flex;
-padding: 20px;
+const CardProduto = styled.div`
+  border: 1px solid black;
+  border-radius:4px;
+`;
 
+const ImagemProduto = styled.img`
+  width: 100%;
+ 
+`;
 
-`
+const InfosProduto = styled.div`
+  padding: 8px;
+`;
 
-const Card = styled.div`
-width: 300px;
-height: 500px;
-margin: 10px;
-display: flex;
-flex-direction: column;
-flex-wrap: wrap;
-justify-content: center;
-align-items: center;
-border: 1px solid black;
+export class Produtos extends React.Component {
+  state = {
+    produtos: [
+      {
+        id: 1,
+        name: "Foguete da Missão Apollo 11",
+        value: 10000.0,
+        imageUrl: "https://picsum.photos/200/200",
+      },
+      {
+        id: 2,
+        name: "Roupa de Astronauta",
+        value: 100.0,
+        imageUrl: "https://picsum.photos/200/200?a=1",
+      },
+      {
+        id: 3,
+        name: "Jantar na Lua com Jeff Bezos",
+        value: 200.0,
+        imageUrl: "https://picsum.photos/200/200?a=2",
+      },
+      {
+        id: 4,
+        name: "Estadia em marte",
+        value: 300.0,
+        imageUrl: "https://picsum.photos/200/200?a=3",
+      },
+      {
+        id: 5,
+        name: "Viagem para buraco negro",
+        value: 300.0,
+        imageUrl: "https://picsum.photos/200/200?a=4",
+      },
+    ],
+  };
 
-button{
-    cursor: pointer;
+  
+
+  render() {
+
+    return (
+      <ProdutosContainer>
+        <ProdutosHeader>
+          <p>Quantidade de produtos: 3</p>
+          <div>
+            <label>
+              Ordenação:
+              <select>
+                <option>Crescente</option>
+                <option>Decrescente</option>
+              </select>
+            </label>
+          </div>
+        </ProdutosHeader>
+        <ProdutosGrid>
+
+        <CardProduto>
+          <ImagemProduto src="https://picsum.photos/200/200"/>
+          <InfosProduto>
+            <p>xxxxxx</p>
+            <p>R$1000,00</p>
+            <button>Adicionar ao carrinho</button>
+          </InfosProduto>
+        </CardProduto>
+
+        <CardProduto>
+          <ImagemProduto src="https://picsum.photos/200/200"/>
+          <InfosProduto>
+            <p>xxxxxx</p>
+            <p>R$1000,00</p>
+            <button>Adicionar ao carrinho</button>
+          </InfosProduto>
+        </CardProduto>
+
+        <CardProduto>
+          <ImagemProduto src="https://picsum.photos/200/200"/>
+          <InfosProduto>
+            <p>xxxxxx</p>
+            <p>R$1000,00</p>
+            <button>Adicionar ao carrinho</button>
+          </InfosProduto>
+        </CardProduto>
+
+        <CardProduto>
+          <ImagemProduto src="https://picsum.photos/200/200"/>
+          <InfosProduto>
+            <p>xxxxxx</p>
+            <p>R$1000,00</p>
+            <button>Adicionar ao carrinho</button>
+          </InfosProduto>
+        </CardProduto>
+
+        <CardProduto>
+          <ImagemProduto src="https://picsum.photos/200/200"/>
+          <InfosProduto>
+            <p>xxxxxx</p>
+            <p>R$1000,00</p>
+            <button>Adicionar ao carrinho</button>
+          </InfosProduto>
+        </CardProduto>
+       
+        </ProdutosGrid>
+      </ProdutosContainer>
+    );
+  }
 }
-
-`
-
-const Imagem = styled.img`
-max-width: 100%;`
-
-const Main = styled.main`
- box-sizing: border-box;
-
-`
-
-const ContainerPai = styled.div`
-width: 100%;
-`
-
-
-
-
-
-class ComponenteProdutos extends React.Component {
-
-
-    Cards = () => this.props.produtoLista.map((elemento, indice) =>{
-        return (
-            <div key={indice}>
-            <image>{this.produtoLista.ImageUrl}</image>
-            <p>{this.produtoLista.name}</p>
-            <p>{this.produtoLista.value}</p>
-            </div>
-        )
-
-    })
-
-
-    render() {
-        return(
-            <ContainerPai>
-                <Header>
-                    <div>
-                        Quantidade de Produtos: 2
-                    </div>
-                    <div> Ordenação: 
-                        <select>
-                            <option>Crescente</option>
-                            <option>Decrescente</option>
-                        </select>
-                    </div>
-                </Header>
-                <Main>
-                    <ContainerCard>
-                        <Card>
-                            {this.Cards}
-                            {<button onClick = {this.props.listaDeProdutos[0].onClickAdicionar}>Adicionar Carrinho</button>}
-                        </Card>
-
-                        {/* <Card {this.props.Lista[1]}>
-                           <Imagem src={this.props.Lista.imageUrl}></Imagem>
-                            <p>{this..props.Lista.name}</p>
-                            <p>R${this.props.Lista.value},00</p>
-                            <button> Adicionar Carrinho </button>
-                        </Card> */}
-                    </ContainerCard>
-                </Main>
-            </ContainerPai>
-            )
-    }
-}
-
-export default ComponenteProdutos;
