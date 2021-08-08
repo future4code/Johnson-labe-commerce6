@@ -1,12 +1,7 @@
 
 import React from "react";
 import styled from "styled-components";
-// import ovni from '../image/contato-ovni.jpg'
-// import foguete from '../image/foguete.jpg'
-// import meteorito from '../image/meteorito.jpg'
-// import roupa from '../image/roupa-espacial.jpg'
-// import buraco from '../image/ver-buraco-negro.jpg'
-// import viagem from '../image/viagem-espacial-lua.jpg'
+
 
 const ProdutosContainer = styled.div`
   border: 1px solid black;
@@ -36,6 +31,8 @@ const CardProduto = styled.div`
 
 const ImagemProduto = styled.img`
   width: 100%;
+  height: 50%;
+
 
 
 `;
@@ -45,50 +42,22 @@ const InfosProduto = styled.div`
 `;
 
 export class Produtos extends React.Component {
-  state = {
-    produtos: [
-      {
-        id: 1,
-        name: "Foguete da Missão Apollo 11",
-        value: 10000.0,
-        imageUrl: "https://picsum.photos/200/200",
-      },
-      {
-        id: 2,
-        name: "Roupa de Astronauta",
-        value: 100.0,
-        imageUrl: "https://picsum.photos/200/200?a=1",
-      },
-      {
-        id: 3,
-        name: "Jantar na Lua com Jeff Bezos",
-        value: 200.0,
-        imageUrl: "https://picsum.photos/200/200?a=2",
-      },
-      {
-        id: 4,
-        name: "Estadia em marte",
-        value: 300.0,
-        imageUrl: "https://picsum.photos/200/200?a=3",
-      },
-      {
-        id: 5,
-        name: "Viagem para buraco negro",
-        value: 300.0,
-        imageUrl: "https://picsum.photos/200/200?a=4",
-      },
-    ],
-
+ 
+   state = {
+     ListaCompleta: this.props.listaDeProdutos,
+     ordenacao: "crescente"
+   }
    
-  };
-  
+
 
   
 
   render() {
 
 
-    const listaProdutos = this.state.produtos.map((Produto) => {
+   
+
+    const  listaProdutos = this.props.listaDeProdutos.map((Produto) => {
       return  (
       <CardProduto>
       <ImagemProduto src={Produto.imageUrl} alt = {Produto.name}/>
@@ -105,7 +74,7 @@ export class Produtos extends React.Component {
     return (
       <ProdutosContainer>
         <ProdutosHeader>
-          <p>Quantidade de produtos: {this.state.produtos.length}</p>
+          <p>Quantidade de produtos: {this.props.listaDeProdutos.length}</p>
           <div>
             <label>
               Ordenação:
