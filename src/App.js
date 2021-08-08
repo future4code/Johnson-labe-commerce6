@@ -89,39 +89,29 @@ class App extends React.Component {
 
   }
   
-  atualizarValorTotal = (listaAtualizada) => {
 
-    if(listaAtualizada.length > 0) {
-        const arrayPrecos = listaAtualizada.map((item)=> {
-          return item.value * item.quantidade
-        })
-        const total = arrayPrecos.reduce((total, proximo) => total + proximo)
-        this.setState({valorTotal: total})
-    } else {
-      this.setState({valorTotal: 0})
-  
-    }
-  
   }
   
-    apagarProduto = (item) => {
-      const listaAtualizada = this.state.carrinho.filter(itemC => {
-        return item !== itemC;
-      });
-
-      this.setState({carrinho: listaAtualizada})
+  onChangeMaximo = (event) => {
+    this.setState({
+      valorInputMaximo: event.target.value.toLowerCase()
+    })
+  };
   
-  }
+  onChangeBuscar = (event) => {
+    this.setState({
+      valorInputBuscar: event.target.value.toLowerCase()
+    })
+  };
+
+  
 
   render(){
 
     return (
       <>
       <AppContainer>
-        <Filtros/>
-        <Produtos 
-        listaDeProdutos = {this.state.produtos}
-        onClickAdicionarAoCarrinho = {this.adicionarAoCarrinho}/>
+
         <Carrinho produtosDoCarrinho = {this.state.carrinho}
         deletar = {this.apagarProduto}
         />
